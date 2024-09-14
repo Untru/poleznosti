@@ -18,9 +18,39 @@
       winget.exe install Microsoft.VisualStudioCode           
 #   GeForceExperience
       winget.exe install Nvidia.GeForceExperience        
-#   Git
-      winget.exe install Git.Git
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OneScript
+      winget.exe install OneScript.OneScript
+#   RemoteDesktopManager
+      winget.exe install Devolutions.RemoteDesktopManager      
+#   WinRAR
+      winget.exe install --id "RARLab.WinRAR" --exact --source winget --accept-source-agreements --silent --disable-interactivity --accept-package-agreements --force --include-unknown     
+#   Zoom
+      winget.exe install --id "Zoom.Zoom.EXE" --exact --source winget --accept-source-agreements --silent --disable-interactivity --accept-package-agreements --force --include-unknown
 
-           
+      
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+#   OBSStudio
+      winget.exe install OBSProject.OBSStudio
+
+               
 
            
