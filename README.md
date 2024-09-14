@@ -41,7 +41,7 @@
       choco.exe install apache-httpd -y --no-progress      
 #   obsidian
       choco.exe install obsidian -y --no-progress     
-#   OBSStudio
+#   Yandex.Disk
       winget.exe install --id "Yandex.Disk" 
 
 Далее установить 1с и наслаждаться работой)))))
