@@ -21,8 +21,6 @@
       winget.exe install Nvidia.GeForceExperience        
 #   OBSStudio
       winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
 #   OneScript
       winget.exe install OneScript.OneScript
 #   RemoteDesktopManager
