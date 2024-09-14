@@ -1,5 +1,6 @@
 # Установка на компьютер всех программ
-
+#   Chocolatey
+      winget.exe install --id "Chocolatey.Chocolatey" --exact --source winget --accept-source-agreements --silent --disable-interactivity --accept-package-agreements
 #  Telegram 
       winget.exe install --id "Telegram.TelegramDesktop"
 #  Google Chrome 
@@ -30,27 +31,20 @@
       winget.exe install --id "RARLab.WinRAR" --exact --source winget --accept-source-agreements --silent --disable-interactivity --accept-package-agreements --force --include-unknown     
 #   Zoom
       winget.exe install --id "Zoom.Zoom.EXE" --exact --source winget --accept-source-agreements --silent --disable-interactivity --accept-package-agreements --force --include-unknown
+#   Discord
+      winget.exe install --id "Discord.Discord" --exact --source winget --accept-source-agreements --silent --disable-interactivity --accept-package-agreements --force --include-unknown      
+#   Skype
+      winget.exe install winget.exe install --id "Microsoft.Skype"      
+#   ShareX
+      winget.exe install --id "ShareX.ShareX"     
+#   apache-httpd
+      choco.exe install apache-httpd -y --no-progress      
+#   obsidian
+      choco.exe install obsidian -y --no-progress     
+#   OBSStudio
+      winget.exe install --id "Yandex.Disk" 
 
-      
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
-#   OBSStudio
-      winget.exe install OBSProject.OBSStudio
+Далее установить 1с и наслаждаться работой)))))
 
-               
 
            
