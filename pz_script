@@ -1,0 +1,60 @@
+Обрезка пз
+
+
+Use [ForAnalyz]
+ALTER DATABASE [ForAnalyz] SET RECOVERY SIMPLE;
+
+-- Полная очистка данных таблицы: _InfoRg10827X1 (РегистрСведений.ВерсииОбъектов)
+TRUNCATE TABLE _InfoRg10827X1;
+ALTER TABLE [_InfoRg10827X1] REBUILD;
+
+-- Полная очистка данных таблицы: _InfoRg5017 (РегистрСведений.ВБ логи)
+TRUNCATE TABLE [_InfoRg29636];
+ALTER TABLE [_InfoRg29636] REBUILD;
+
+-- Полная очистка данных таблицы: _AccumRgT15925 (РегистрСведений.Исходящие запросы)
+TRUNCATE TABLE [_AccumRgT15925];
+ALTER TABLE [_AccumRgT15925] REBUILD;
+
+-- Полное удаление истории данных
+DECLARE @SQL_DataHistory NVARCHAR(MAX);
+SELECT @SQL_DataHistory = CONCAT(COALESCE(@SQL_DataHistory + ' ',''), 'TRUNCATE TABLE [' + TABLE_NAME + ']; ALTER TABLE [' + TABLE_NAME + '] REBUILD;') 
+FROM INFORMATION_SCHEMA.TABLES 
+WHERE TABLE_NAME LIKE '%DataHistory%' 
+	AND TABLE_NAME NOT LIKE '%settings%';
+EXECUTE sp_executesql @SQL_DataHistory;
+
+-- Удаление данных объекта События
+BEGIN
+	DECLARE @Names_Document519 NVARCHAR(MAX);
+	DECLARE @SQL_Document519 NVARCHAR(MAX);
+	DECLARE @SQL2_Document519 NVARCHAR(MAX);
+	SELECT @Names_Document519 = COALESCE(@Names_Document519 + ', ', '') + COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME LIKE '_Document519' AND DATA_TYPE NOT LIKE 'timestamp';
+	SET @SQL_Document519 = N'INSERT INTO [_Document519] (' + @Names_Document519 + ') SELECT ' + @Names_Document519 + ' FROM [NG__Document519] WITH (TABLOCK, HOLDLOCK) OPTION (MAXDOP 1);';
+	DROP TABLE IF EXISTS [NG__AccumRg6493];
+	BEGIN TRANSACTION;
+	SELECT * INTO [NG__Document519] FROM [_Document519] WITH (TABLOCK, HOLDLOCK) WHERE [_Date_Time] > '4024-04-30 23:59:59' OPTION (MAXDOP 1);
+	TRUNCATE TABLE [_Document519];
+	BEGIN TRY
+		EXECUTE sp_executesql @SQL_Document519;
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+    SELECT   
+        ERROR_NUMBER() AS ErrorNumber,  
+        ERROR_SEVERITY() AS ErrorSeverity,  
+        ERROR_STATE() AS ErrorState,  
+        ERROR_PROCEDURE() AS ErrorProcedure,  
+        ERROR_LINE() AS ErrorLine,  
+        ERROR_MESSAGE() AS ErrorMessage; 
+		IF @@TRANCOUNT > 0  
+			ROLLBACK TRANSACTION;
+	END CATCH;
+	DROP TABLE IF EXISTS [NG__Document519];
+	ALTER TABLE [_Document519] REBUILD;
+END;
+
+
+GO
+DBCC SHRINKDATABASE(N'ForAnalyz' )
+GO
