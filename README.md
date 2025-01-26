@@ -50,3 +50,20 @@ https://dzen.ru/a/YvjBGikMEW6vWoGu?ysclid=m6dw4zr0c1456306326
   ],
   "WinGetVersion": "1.6.10121"
 }
+
+Настройки
+{
+ "installBehavior": {
+ "preferences": {
+ "scope": "user"
+ },
+ "telemetry": {
+ "disable": true
+ },
+ "network": {
+ "downloader": "wininet"
+ }
+ }
+}
+
+
